@@ -5,24 +5,24 @@
         [
             {
                 "name": "USA",
-                "value": "USA" 
-                },
+                "value": "usa" 
+            },
             {
                 "name": "Canada",
-                "value": "Canada" 
-                },
+                "value": "canada" 
+            },
             {
-                "name": "England",
-                "value": "England" 
-                },
+                "name": "UK",
+                "value": "uk" 
+            },
             {
                 "name": "India",
-                "value": "India" 
-                },
+                "value": "india" 
+            },
             {
                 "name": "Australia",
-                "value": "Australia" 
-                }
+                "value": "australia" 
+            }
         ],
         "Three":
         [
@@ -41,13 +41,145 @@
             {
                 "name": "India",
                 "value": "India" 
-                },
+            },
             {
                 "name": "Australia",
                 "value": "Australia" 
                 }
         ],
         "Four":"Four_Value"
+    },
+    "States":{
+        "USA":[
+                {"name":"Alabama", "value":"Alabama"},
+                {"name":"Alaska", "value":"Alaska"},
+                {"name":"Arizona", "value":"Arizona"},
+                {"name":"Arkansas", "value":"Arkansas"},
+                {"name":"California", "value":"California"},
+                {"name":"Colorado", "value":"Colorado"},
+                {"name":"Connecticut", "value":"Connecticut"},
+                {"name":"Delaware", "value":"Delaware"},
+                {"name":"Florida", "value":"Florida"},
+                {"name":"Georgia", "value":"Georgia"},
+                {"name":"Hawaii", "value":"Hawaii"},
+                {"name":"Idaho", "value":"Idaho"},
+                {"name":"Illinois", "value":"Illinois"},
+                {"name":"Indiana", "value":"Indiana"},
+                {"name":"Iowa", "value":"Iowa"},
+                {"name":"Kansas", "value":"Kansas"},
+                {"name":"Kentucky", "value":"Kentucky"},
+                {"name":"Louisiana", "value":"Louisiana"},
+                {"name":"Maine", "value":"Maine"},
+                {"name":"Maryland", "value":"Maryland"},
+                {"name":"Massachusetts", "value":"Massachusetts"},
+                {"name":"Michigan", "value":"Michigan"},
+                {"name":"Minnesota", "value":"Minnesota"},
+                {"name":"Mississippi", "value":"Mississippi"},
+                {"name":"Missouri", "value":"Missouri"},
+                {"name":"Montana", "value":"Montana"},
+                {"name":"Nebraska", "value":"Nebraska"},
+                {"name":"Nevada", "value":"Nevada"},
+                {"name":"New Hampshire", "value":"New Hampshire"},
+                {"name":"New Jersey", "value":"New Jersey"},
+                {"name":"New Mexico", "value":"New Mexico"},
+                {"name":"New York", "value":"New York"},
+                {"name":"North Carolina", "value":"North Carolina"},
+                {"name":"North Dakota", "value":"North Dakota"},
+                {"name":"Ohio", "value":"Ohio"},
+                {"name":"Oklahoma", "value":"Oklahoma"},
+                {"name":"Oregon", "value":"Oregon"},
+                {"name":"Pennsylvania", "value":"Pennsylvania"},
+                {"name":"Rhode Island", "value":"Rhode Island"},
+                {"name":"South Carolina", "value":"South Carolina"},
+                {"name":"South Dakota", "value":"South Dakota"},
+                {"name":"Tennessee", "value":"Tennessee"},
+                {"name":"Texas", "value":"Texas"},
+                {"name":"Utah", "value":"Utah"},
+                {"name":"Vermont", "value":"Vermont"},
+                {"name":"Virginia", "value":"Virginia"},
+                {"name":"Washington", "value":"Washington"},
+                {"name":"West Virginia", "value":"West Virginia"},
+                {"name":"Wisconsin", "value":"Wisconsin"},
+                {"name":"Wyoming", "value":"Wyoming"}
+        ],
+        "Canada":[
+                {"name":"Alberta", "value":"Alberta"},
+                {"name":"British Columbia", "value":"British Columbia"},
+                {"name":"Labrador", "value":"Labrador"},
+                {"name":"Manitoba", "value":"Manitoba"},
+                {"name":"New Brunswick", "value":"New Brunswick"},
+                {"name":"Newfoundland", "value":"Newfoundland"},
+                {"name":"Nova Scotia", "value":"Nova Scotia"},
+                {"name":"Nunavut", "value":"Nunavut"},
+                {"name":"North West Terr.", "value":"North West Terr."},
+                {"name":"Ontario", "value":"Ontario"},
+                {"name":"Prince Edward Is.", "value":"Prince Edward Is."},
+                {"name":"Quebec", "value":"Quebec"},
+                {"name":"Saskatchewen", "value":"Saskatchewen"},
+                {"name":"Yukon", "value":"Yukon"}
+        ],
+        "UK":[
+                {"name":"England", "value":"England"},
+                {"name":"Northern Ireland", "value":"Northern Ireland"},
+                {"name":"Scotland", "value":"Scotland"},
+                {"name":"Wales", "value":"Wales"}
+        ],
+        "India":[
+                {"name":"Andhra Pradesh", "value":"Andhra Pradesh"},
+                {"name":"Arunachal Pradesh", "value":"Arunachal Pradesh"},
+                {"name":"Assam", "value":"Assam"},
+                {"name":"Bihar", "value":"Bihar"},
+                {"name":"Chhattisgarh", "value":"Chhattisgarh"},
+                {"name":"Goa", "value":"Goa"},
+                {"name":"Gujarat", "value":"Gujarat"},
+                {"name":"Haryana", "value":"Haryana"},
+                {"name":"Himachal Pradesh", "value":"Himachal Pradesh"},
+                {"name":"Jammu and Kashmir", "value":"Jammu and Kashmir"},
+                {"name":"Jharkhand", "value":"Jharkhand"},
+                {"name":"Karnataka", "value":"Karnataka"},
+                {"name":"Kerala", "value":"Kerala"},
+                {"name":"Madhya Pradesh", "value":"Madhya Pradesh"},
+                {"name":"Maharashtra", "value":"Maharashtra"},
+                {"name":"Manipur", "value":"Manipur"},
+                {"name":"Meghalaya", "value":"Meghalaya"},
+                {"name":"Mizoram", "value":"Mizoram"},
+                {"name":"Nagaland", "value":"Nagaland"},
+                {"name":"Orissa", "value":"Orissa"},
+                {"name":"Punjab", "value":"Punjab"},
+                {"name":"Rajasthan", "value":"Rajasthan"},
+                {"name":"Sikkim", "value":"Sikkim"},
+                {"name":"Tamil Nadu", "value":"Tamil Nadu"},
+                {"name":"Telagana", "value":"Telagana"},
+                {"name":"Tripura", "value":"Tripura"},
+                {"name":"Uttaranchal", "value":"Uttaranchal"},
+                {"name":"Uttar Pradesh", "value":"Uttar Pradesh"},
+                {"name":"West Bengal", "value":"West Bengal"},
+                {"name":"Andaman and Nicobar Islands", "value":"Andaman and Nicobar Islands"},
+                {"name":"Chandigarh", "value":"Chandigarh"},
+                {"name":"Dadar and Nagar Haveli", "value":"Dadar and Nagar Haveli"},
+                {"name":"Daman and Diu", "value":"Daman and Diu"},
+                {"name":"Delhi", "value":"Delhi"},
+                {"name":"Lakshadeep", "value":"Lakshadeep"},
+                {"name":"Pondicherry", "value":"Pondicherry"}
+        ],
+        "Australia":[
+                {"name":"New South Wales", "value":"New South Wales"},
+                {"name":"Queensland", "value":"Queensland"},
+                {"name":"South Australia", "value":"South Australia"},
+                {"name":"Tasmania", "value":"Tasmania"},
+                {"name":"Victoria", "value":"Victoria"},
+                {"name":"Western Australia", "value":"Western Australia"},
+                {"name":"Australian Capital Territory", "value":"Australian Capital Territory"},
+                {"name":"Jervis Bay Territory", "value":"Jervis Bay Territory"},
+                {"name":"Northern Territory", "value":"Northern Territory"},
+                {"name":"Ashmore and Cartier Islands", "value":"Ashmore and Cartier Islands"},
+                {"name":"Australian Antarctic Territory", "value":"Australian Antarctic Territory"},
+                {"name":"Christmas Island", "value":"Christmas Island"},
+                {"name":"Cocos (Keeling) Islands", "value":"Cocos (Keeling) Islands"},
+                {"name":"Coral Sea Islands", "value":"Coral Sea Islands"},
+                {"name":"Heard Island and McDonald Islands", "value":"Heard Island and McDonald Islands"},
+                {"name":"Norfolk Island", "value":"Norfolk Island"}
+        ]
     }
 }
 

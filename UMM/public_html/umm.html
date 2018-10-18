@@ -11,6 +11,8 @@
 			var maxID = ids.length;
 
 			var index = 0;
+                        
+                        var states;
 
 			$(document).ready(function(){
 
@@ -26,13 +28,20 @@
                             
                             $.getJSON("https://raw.githubusercontent.com/ganaparthijenkins/TEST/master/UMM/UMMPageConfig.json", function(data) {
                               
-                              $("#Begin").html( data.Pages.One )
-                              
+                                $("#Begin").html( data.Pages.One )
+                                
+                                var countries = data.Pages.Two;
+                                
+                                $.each(countries, function (index, value) {
+                                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                                    $('#country').append('<option value="' + value.value + '">' + value.name + '</option>');
+                                });
+                                
                             });
-
-                            var txt3 = document.createElement("<div>");  // Create with DOM
-                            txt3.innerHTML = "Text.";
-                            $("#").append();      // Append the new elements
+                            
+                            $('#country').change(function () {
+                                alert('Selected Item: ' + this.options[this.selectedIndex].text);
+                            });
    
 			});
 
@@ -52,8 +61,8 @@
 
 				if(index == 0){
 
-					$("#btnT_Previous").prop('disabled', true);
-					$("#btnB_Previous").prop('disabled', true);
+                                    $("#btnT_Previous").prop('disabled', true);
+                                    $("#btnB_Previous").prop('disabled', true);
 
 				}
 
@@ -194,24 +203,13 @@
             <button id="btnT_Finish" onclick="finish()">Finish</button>
             
             <div id="Begin" class="a" >
-                <span><strong>
-                    Welcome to Layered Customization!<br>
-                    </strong>
-                    <br>
-                    This wizard helps you to extend the out of the box Oracle Analytical Apps functionality. Each step is highlighted in the header. 
-                    <br>
-                    Step 1 is all documentation....
-                    <br>
-                </span>
+            
             </div>
 
             <div id="One" class="a" >
 
                 <label for="country">Country</label>
                 <select id="country" name="country">
-                    <option value="australia">Australia</option>
-                    <option value="canada">Canada</option>
-                    <option value="usa">USA</option>
                 </select>
                 
             </div>
