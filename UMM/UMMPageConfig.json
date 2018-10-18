@@ -1,9 +1,31 @@
 {
     "Pages":{
-        "One":
-                "<span id=\\'sBegin\\'>\r\n                    <strong>\r\n                        Welcome to Layered Customization!<\/br>\r\n                    <\/strong>\r\n                    <\/br>\r\n                        This wizard helps you to extend the out of the box Oracle Analytical Apps functionality. Each step is highlighted in the header. \r\n                    <\/br>\r\n                        Step 1 is all documentation.\r\n                    <\/br>\r\n                <\/span>",
-        "Two":"Two_Value",
+        "One" : "<span id=\\'sBegin\\'>\r\n <strong>\r\n  Welcome to Layered Customization!<\/br>\r\n <\/strong>\r\n <\/br>\r\n This wizard helps you to extend the out of the box Oracle Analytical Apps functionality. Each step is highlighted in the header. \r\n <\/br>\r\n Step 1 is all documentation.\r\n  <\/br>\r\n  <\/span>",
+        "Two":
+        [
+            {
+                "name": "001",
+                "value": "Eurasian Collared-Dove" 
+                },
+            {
+                "name": "002",
+                "value": "Bald Eagle" 
+                },
+            {
+                "name": "003",
+                "value": "Cooper's Hawk" 
+                },
+            {
+                "name": "004",
+                "value": "Bell's Sparrow" 
+                },
+            {
+                "name": "005",
+                "value": "Mourning Dove" 
+                }
+        ],
         "Three":"Three_Value",
         "Four":"Four_Value"
     }
 }
+
