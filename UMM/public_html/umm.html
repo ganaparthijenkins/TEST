@@ -14,15 +14,25 @@
 
 			$(document).ready(function(){
 
-				$("div").hide();
+                            $("div").hide();
 
-				$("#" + ids[index]).show();
+                            $("#" + ids[index]).show();
 
-				$("#previous").prop('disabled', true);
-				$("#previous1").prop('disabled', true);
+                            $("#btnT_Previous").prop('disabled', true);
+                            $("#btnB_Previous").prop('disabled', true);
 
-				$("#finish").prop('disabled', true);
-				$("#finish1").prop('disabled', true);
+                            $("#btnT_Finish").prop('disabled', true);
+                            $("#btnB_Finish").prop('disabled', true);
+                            
+                            $.getJSON("https://raw.githubusercontent.com/ganaparthijenkins/TEST/master/UMM/UMMPageConfig.json", function(data) {
+                              
+                              $("#Begin").html( data.Pages.One )
+                              
+                            });
+
+                            var txt3 = document.createElement("<div>");  // Create with DOM
+                            txt3.innerHTML = "Text.";
+                            $("#").append();      // Append the new elements
    
 			});
 
@@ -30,11 +40,11 @@
 
 				$("div").hide();
 
-				$("#next").prop('disabled', false);
-				$("#next1").prop('disabled', false);
+				$("#btnT_Next").prop('disabled', false);
+				$("#btnB_Next").prop('disabled', false);
 
-				$("#finish").prop('disabled', true);
-				$("#finish1").prop('disabled', true);
+				$("#btnT_Finish").prop('disabled', true);
+				$("#btnB_Finish").prop('disabled', true);
 
 				$('div').find('input, textarea, button, select').attr('disabled',false);
 
@@ -42,8 +52,8 @@
 
 				if(index == 0){
 
-					$("#previous").prop('disabled', true);
-					$("#previous1").prop('disabled', true);
+					$("#btnT_Previous").prop('disabled', true);
+					$("#btnB_Previous").prop('disabled', true);
 
 				}
 
@@ -57,11 +67,11 @@
 
 				if(index+1 >= maxID){
 
-					$("#next").prop('disabled', true);
-					$("#next1").prop('disabled', true);
+					$("#btnT_Next").prop('disabled', true);
+					$("#btnB_Next").prop('disabled', true);
 
-					$("#finish").prop('disabled', false);
-					$("#finish1").prop('disabled', false);
+					$("#btnT_Finish").prop('disabled', false);
+					$("#btnB_Finish").prop('disabled', false);
 
 					$('div').find('input, textarea, button, select').attr('disabled',true);
 					$("#One").show();
@@ -71,8 +81,8 @@
 
 				if(index != 0){
 
-					$("#previous").prop('disabled', false);
-					$("#previous1").prop('disabled', false);
+					$("#btnT_Previous").prop('disabled', false);
+					$("#btnB_Previous").prop('disabled', false);
 
 				}
 
@@ -172,69 +182,59 @@
 	</head>
 	<body>
 
-		<ul class="breadcrumb">
-		  <li><a href="#">Begin</a></li>
-		  <li><a href="#">StepOne</a></li>
-		  <li><a href="#">StepTwo</a></li>
-		  <li>Finish</li>
-		</ul>
+            <ul class="breadcrumb">
+                <li><a href="#">Begin</a></li>
+                <li><a href="#">StepOne</a></li>
+                <li><a href="#">StepTwo</a></li>
+                <li>Finish</li>
+            </ul>
+            
+            <button id="btnT_Previous" onclick="previous()"> << Previous </button>
+            <button id="btnT_Next" onclick="next()"> Next >> </button>
+            <button id="btnT_Finish" onclick="finish()">Finish</button>
+            
+            <div id="Begin" class="a" >
+                <span><strong>
+                    Welcome to Layered Customization!<br>
+                    </strong>
+                    <br>
+                    This wizard helps you to extend the out of the box Oracle Analytical Apps functionality. Each step is highlighted in the header. 
+                    <br>
+                    Step 1 is all documentation....
+                    <br>
+                </span>
+            </div>
 
-		<button id="previous" onclick="previous()"> << Previous </button>
-		<button id="next" onclick="next()"> Next >> </button>
-		<button id="finish" onclick="finish()">Finish</button>
+            <div id="One" class="a" >
 
-		<div id="Begin" class="a" >
-		<span><strong>
-		    Welcome to Layered Customization!<br>
-		    </strong>
-		        <br>
-		    This wizard helps you to extend the out of the box Oracle Analytical Apps functionality. Each step is highlighted in the header. 
-		    <br>
-		    Step 1 is all documentation.
-		    <br>
-		</span>
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
+                
+            </div>
 
-		</div>
+            <div id="Two" class="a" >
+                <label for="subject">Two</label>
+            </div>
+            
+            <div id="Finish" class="a" >
+                <label for="subject">Finish</label>
+            </div>
+            
+            <button id="btnB_Previous" onclick="previous()"> << Previous </button>
+            <button id="btnB_Next" onclick="next()"> Next >> </button>
+            <button id="btnB_Finish" onclick="finish()">Finish</button>
+            
+            </br>
 
-		<div id="One" class="a" >
-
-		  <label for="fname">First Name</label>
-		    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-
-		    <label for="lname">Last Name</label>
-		    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-		    <label for="country">Country</label>
-		    <select id="country" name="country">
-		      <option value="australia">Australia</option>
-		      <option value="canada">Canada</option>
-		      <option value="usa">USA</option>
-		    </select>
-
-		    <label for="subject">Subject</label>
-		    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
-		</div>
-
-		<div id="Two" class="a" >
-		<label for="subject">Two</label>
-		</div>
-
-		<div id="Finish" class="a" >
-		<label for="subject">Finish</label>
-		</div>
-
-		<button id="previous1" onclick="previous()"> << Previous </button>
-		<button id="next1" onclick="next()"> Next >> </button>
-		<button id="finish1" onclick="finish()">Finish</button>
-
-		</br>
-
-		<ul class="breadcrumb">
-		  <li><a href="#">Begin</a></li>
-		  <li><a href="#">StepOne</a></li>
-		  <li><a href="#">StepTwo</a></li>
-		  <li>Finish</li>
-		</ul>
+            <ul class="breadcrumb">
+                <li><a href="#">Begin</a></li>
+                <li><a href="#">StepOne</a></li>
+                <li><a href="#">StepTwo</a></li>
+                <li>Finish</li>
+            </ul>
 	</body>
 </html>
