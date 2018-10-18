@@ -34,6 +34,8 @@
                                 
                                 states = data.States;
                                 
+                                $('#country').append('<option value=\"---Select---\">---Select---</option>' );
+                                
                                 $.each(countries, function (index, value) {
                                 
                                     $('#country').append('<option value="' + value.value + '">' + value.name + '</option>');
@@ -43,16 +45,16 @@
                             });
                             
                             $('#country').change(function () {
-                            
-                                alert('Selected Item: ' + this.options[this.selectedIndex].text);
                                 
-                                $.each(states, function (index, value) {
+                                var statesOfCountry = states[this.options[this.selectedIndex].text];
+                                
+                                $('#state').empty();
+                                
+                                $.each(statesOfCountry, function (index, value) {
                                 
                                     $('#state').append('<option value="' + value.value + '">' + value.name + '</option>');
                                     
                                 });
-                                
-                                $('#state').append('<option value="' + value.value + '">' + value.name + '</option>');
                                 
                             });
    
@@ -219,6 +221,10 @@
             
             </div>
 
+            <div id="Finish" class="a" >
+                <label for="subject">Review</label>
+            </div>
+            
             <div id="One" class="a" >
 
                 <label for="country">Country</label>
@@ -228,14 +234,10 @@
             </div>
 
             <div id="Two" class="a" >
-                <label for="state">Country</label>
+                <label for="state">State</label>
                 <select id="state" name="state">
                 </select>
                 
-            </div>
-            
-            <div id="Finish" class="a" >
-                <label for="subject">Finish</label>
             </div>
             
             <button id="btnB_Previous" onclick="previous()"> << Previous </button>
