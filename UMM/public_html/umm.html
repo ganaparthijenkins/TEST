@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script>
+
+			var ids = ["Begin", "One", "Two", "Finish"];
+
+			var maxID = ids.length;
+
+			var index = 0;
+
+			$(document).ready(function(){
+
+				$("div").hide();
+
+				$("#" + ids[index]).show();
+
+				$("#previous").prop('disabled', true);
+				$("#previous1").prop('disabled', true);
+
+				$("#finish").prop('disabled', true);
+				$("#finish1").prop('disabled', true);
+   
+			});
+
+			function previous() {
+
+				$("div").hide();
+
+				$("#next").prop('disabled', false);
+				$("#next1").prop('disabled', false);
+
+				$("#finish").prop('disabled', true);
+				$("#finish1").prop('disabled', true);
+
+				$('div').find('input, textarea, button, select').attr('disabled',false);
+
+				$("#" + ids[--index]).show();
+
+				if(index == 0){
+
+					$("#previous").prop('disabled', true);
+					$("#previous1").prop('disabled', true);
+
+				}
+
+			}
+
+			function next() {
+
+				$("div").hide();
+
+				$("#" + ids[++index]).show();
+
+				if(index+1 >= maxID){
+
+					$("#next").prop('disabled', true);
+					$("#next1").prop('disabled', true);
+
+					$("#finish").prop('disabled', false);
+					$("#finish1").prop('disabled', false);
+
+					$('div').find('input, textarea, button, select').attr('disabled',true);
+					$("#One").show();
+					$("#Two").show();
+
+				}
+
+				if(index != 0){
+
+					$("#previous").prop('disabled', false);
+					$("#previous1").prop('disabled', false);
+
+				}
+
+			}
+
+			function finish() {
+
+				$('button').attr('disabled',true);
+
+				$("div").hide();
+
+				var message = $("<div class='a'></div>").text("Request submitted successfully");
+
+				$("#Begin").after( message );  
+
+			}
+
+		</script>
+		
+		<style>
+			
+			div.a {
+			    height: auto;
+			    border: .0px solid black;
+			    padding: 30px;
+			}
+
+			div.b {
+			    height: 350px;
+			    border: .5px solid black; 
+			    padding-top: 60px;
+
+			}
+
+			ul.breadcrumb {
+			    padding: 10px 16px;
+			    list-style: none;
+			    background-color: #eee;
+			}
+			
+			ul.breadcrumb li {
+			    display: inline;
+			    font-size: 18px;
+			}
+			
+			ul.breadcrumb li+li:before {
+			    padding: 8px;
+			    color: black;
+			    content: "/\00a0";
+			}
+			
+			ul.breadcrumb li a {
+			    color: #0275d8;
+			    text-decoration: none;
+			}
+			
+			ul.breadcrumb li a:hover {
+			    color: #01447e;
+			    text-decoration: underline;
+			}
+
+			body {font-family: Arial, Helvetica, sans-serif;}
+			* {box-sizing: border-box;}
+
+			input[type=text], select, textarea {
+			    width: 100%;
+			    padding: 12px;
+			    border: 1px solid #ccc;
+			    border-radius: 4px;
+			    box-sizing: border-box;
+			    margin-top: 6px;
+			    margin-bottom: 16px;
+			    resize: vertical;
+			}
+
+			input[type=submit] {
+			    background-color: #4CAF50;
+			    color: white;
+			    padding: 12px 20px;
+			    border: none;
+			    border-radius: 4px;
+			    cursor: pointer;
+			}
+
+			input[type=submit]:hover {
+			    background-color: #45a049;
+			}
+
+			.container {
+			    border-radius: 5px;
+			    background-color: #f2f2f2;
+			    padding: 20px;
+			}
+			
+		</style>
+
+	</head>
+	<body>
+
+		<ul class="breadcrumb">
+		  <li><a href="#">Begin</a></li>
+		  <li><a href="#">StepOne</a></li>
+		  <li><a href="#">StepTwo</a></li>
+		  <li>Finish</li>
+		</ul>
+
+		<button id="previous" onclick="previous()"> << Previous </button>
+		<button id="next" onclick="next()"> Next >> </button>
+		<button id="finish" onclick="finish()">Finish</button>
+
+		<div id="Begin" class="a" >
+		<span><strong>
+		    Welcome to Layered Customization!<br>
+		    </strong>
+		        <br>
+		    This wizard helps you to extend the out of the box Oracle Analytical Apps functionality. Each step is highlighted in the header. 
+		    <br>
+		    Step 1 is all documentation.
+		    <br>
+		</span>
+
+		</div>
+
+		<div id="One" class="a" >
+
+		  <label for="fname">First Name</label>
+		    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+		    <label for="lname">Last Name</label>
+		    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+		    <label for="country">Country</label>
+		    <select id="country" name="country">
+		      <option value="australia">Australia</option>
+		      <option value="canada">Canada</option>
+		      <option value="usa">USA</option>
+		    </select>
+
+		    <label for="subject">Subject</label>
+		    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+		</div>
+
+		<div id="Two" class="a" >
+		<label for="subject">Two</label>
+		</div>
+
+		<div id="Finish" class="a" >
+		<label for="subject">Finish</label>
+		</div>
+
+		<button id="previous1" onclick="previous()"> << Previous </button>
+		<button id="next1" onclick="next()"> Next >> </button>
+		<button id="finish1" onclick="finish()">Finish</button>
+
+		</br>
+
+		<ul class="breadcrumb">
+		  <li><a href="#">Begin</a></li>
+		  <li><a href="#">StepOne</a></li>
+		  <li><a href="#">StepTwo</a></li>
+		  <li>Finish</li>
+		</ul>
+	</body>
+</html>
