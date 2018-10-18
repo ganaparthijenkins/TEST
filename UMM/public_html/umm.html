@@ -32,15 +32,28 @@
                                 
                                 var countries = data.Pages.Two;
                                 
+                                states = data.States;
+                                
                                 $.each(countries, function (index, value) {
-                                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                                
                                     $('#country').append('<option value="' + value.value + '">' + value.name + '</option>');
+                                    
                                 });
                                 
                             });
                             
                             $('#country').change(function () {
+                            
                                 alert('Selected Item: ' + this.options[this.selectedIndex].text);
+                                
+                                $.each(states, function (index, value) {
+                                
+                                    $('#state').append('<option value="' + value.value + '">' + value.name + '</option>');
+                                    
+                                });
+                                
+                                $('#state').append('<option value="' + value.value + '">' + value.name + '</option>');
+                                
                             });
    
 			});
@@ -215,7 +228,10 @@
             </div>
 
             <div id="Two" class="a" >
-                <label for="subject">Two</label>
+                <label for="state">Country</label>
+                <select id="state" name="state">
+                </select>
+                
             </div>
             
             <div id="Finish" class="a" >
