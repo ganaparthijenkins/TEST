@@ -1,256 +1,252 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-		<script>
+        <script>
 
-			var ids = ["Begin", "One", "Two", "Finish"];
+            var ids = ["Begin", "One", "Two", "Finish"];
 
-			var maxID = ids.length;
+            var maxID = ids.length;
 
-			var index = 0;
+            var index = 0;
+            
+            var states;
+
+            $(document).ready(function(){
+
+                $("div").hide();
+
+                $("#" + ids[index]).show();
+
+                $("#btnT_Previous").prop('disabled', true);
+                $("#btnB_Previous").prop('disabled', true);
+
+                $("#btnT_Finish").prop('disabled', true);
+                $("#btnB_Finish").prop('disabled', true);
+                
+                $.getJSON("https://raw.githubusercontent.com/ganaparthijenkins/TEST/master/UMM/UMMPageConfig.json", function(data) {
+                  
+                    $("#Begin").html( data.Pages.One )
+                    
+                    var countries = data.Pages.Two;
+                    
+                    states = data.States;
+                    
+                    $('#country').append('<option value=\"---Select---\">---Select---</option>' );
+                    
+                    $.each(countries, function (index, value) {
+                    
+                        $('#country').append('<option value="' + value.value + '">' + value.name + '</option>');
                         
-                        var states;
+                    });
+                    
+                });
+                    
+                $('#country').change(function () {
+                    
+                    var statesOfCountry = states[this.options[this.selectedIndex].text];
+                    
+                    $('#state').empty();
+                    
+                    $.each(statesOfCountry, function (index, value) {
+                    
+                        $('#state').append('<option value="' + value.value + '">' + value.name + '</option>');
+                        
+                    });
+                    
+                });
 
-			$(document).ready(function(){
+            });
 
-                            $("div").hide();
+            function previous() {
 
-                            $("#" + ids[index]).show();
+                $("div").hide();
 
-                            $("#btnT_Previous").prop('disabled', true);
-                            $("#btnB_Previous").prop('disabled', true);
+                $("#btnT_Next").prop('disabled', false);
+                $("#btnB_Next").prop('disabled', false);
 
-                            $("#btnT_Finish").prop('disabled', true);
-                            $("#btnB_Finish").prop('disabled', true);
-                            
-                            $.getJSON("https://raw.githubusercontent.com/ganaparthijenkins/TEST/master/UMM/UMMPageConfig.json", function(data) {
-                              
-                                $("#Begin").html( data.Pages.One )
-                                
-                                var countries = data.Pages.Two;
-                                
-                                states = data.States;
-                                
-                                $('#country').append('<option value=\"---Select---\">---Select---</option>' );
-                                
-                                $.each(countries, function (index, value) {
-                                
-                                    $('#country').append('<option value="' + value.value + '">' + value.name + '</option>');
-                                    
-                                });
-                                
-                            });
-                            
-                            $('#country').change(function () {
-                                
-                                var statesOfCountry = states[this.options[this.selectedIndex].text];
-                                
-                                $('#state').empty();
-                                
-                                $.each(statesOfCountry, function (index, value) {
-                                
-                                    $('#state').append('<option value="' + value.value + '">' + value.name + '</option>');
-                                    
-                                });
-                                
-                            });
-   
-			});
+                $("#btnT_Finish").prop('disabled', true);
+                $("#btnB_Finish").prop('disabled', true);
 
-			function previous() {
+                $('div').find('input, textarea, button, select').attr('disabled',false);
 
-				$("div").hide();
+                $("#" + ids[--index]).show();
 
-				$("#btnT_Next").prop('disabled', false);
-				$("#btnB_Next").prop('disabled', false);
+                if(index == 0){
 
-				$("#btnT_Finish").prop('disabled', true);
-				$("#btnB_Finish").prop('disabled', true);
+                    $("#btnT_Previous").prop('disabled', true);
+                    $("#btnB_Previous").prop('disabled', true);
 
-				$('div').find('input, textarea, button, select').attr('disabled',false);
+                }
 
-				$("#" + ids[--index]).show();
+            }
 
-				if(index == 0){
+            function next() {
 
-                                    $("#btnT_Previous").prop('disabled', true);
-                                    $("#btnB_Previous").prop('disabled', true);
+                $("div").hide();
 
-				}
+                $("#" + ids[++index]).show();
 
-			}
+                if(index+1 >= maxID){
 
-			function next() {
+                    $("#btnT_Next").prop('disabled', true);
+                    $("#btnB_Next").prop('disabled', true);
 
-				$("div").hide();
+                    $("#btnT_Finish").prop('disabled', false);
+                    $("#btnB_Finish").prop('disabled', false);
 
-				$("#" + ids[++index]).show();
+                    $('div').find('input, textarea, button, select').attr('disabled',true);
+                    $("#One").show();
+                    $("#Two").show();
 
-				if(index+1 >= maxID){
+                }
 
-					$("#btnT_Next").prop('disabled', true);
-					$("#btnB_Next").prop('disabled', true);
+                if(index != 0){
 
-					$("#btnT_Finish").prop('disabled', false);
-					$("#btnB_Finish").prop('disabled', false);
+                    $("#btnT_Previous").prop('disabled', false);
+                    $("#btnB_Previous").prop('disabled', false);
 
-					$('div').find('input, textarea, button, select').attr('disabled',true);
-					$("#One").show();
-					$("#Two").show();
+                }
 
-				}
+            }
 
-				if(index != 0){
+            function finish() {
 
-					$("#btnT_Previous").prop('disabled', false);
-					$("#btnB_Previous").prop('disabled', false);
+                $('button').attr('disabled',true);
 
-				}
+                $("div").hide();
 
-			}
+                var message = $("<div class='a'></div>").text("Request submitted successfully");
 
-			function finish() {
+                $("#Begin").after( message );  
 
-				$('button').attr('disabled',true);
+            }
 
-				$("div").hide();
-
-				var message = $("<div class='a'></div>").text("Request submitted successfully");
-
-				$("#Begin").after( message );  
-
-			}
-
-		</script>
+        </script>
 		
-		<style>
-			
-			div.a {
-			    height: auto;
-			    border: .0px solid black;
-			    padding: 30px;
-			}
-
-			div.b {
-			    height: 350px;
-			    border: .5px solid black; 
-			    padding-top: 60px;
-
-			}
-
-			ul.breadcrumb {
-			    padding: 10px 16px;
-			    list-style: none;
-			    background-color: #eee;
-			}
-			
-			ul.breadcrumb li {
-			    display: inline;
-			    font-size: 18px;
-			}
-			
-			ul.breadcrumb li+li:before {
-			    padding: 8px;
-			    color: black;
-			    content: "/\00a0";
-			}
-			
-			ul.breadcrumb li a {
-			    color: #0275d8;
-			    text-decoration: none;
-			}
-			
-			ul.breadcrumb li a:hover {
-			    color: #01447e;
-			    text-decoration: underline;
-			}
-
-			body {font-family: Arial, Helvetica, sans-serif;}
-			* {box-sizing: border-box;}
-
-			input[type=text], select, textarea {
-			    width: 100%;
-			    padding: 12px;
-			    border: 1px solid #ccc;
-			    border-radius: 4px;
-			    box-sizing: border-box;
-			    margin-top: 6px;
-			    margin-bottom: 16px;
-			    resize: vertical;
-			}
-
-			input[type=submit] {
-			    background-color: #4CAF50;
-			    color: white;
-			    padding: 12px 20px;
-			    border: none;
-			    border-radius: 4px;
-			    cursor: pointer;
-			}
-
-			input[type=submit]:hover {
-			    background-color: #45a049;
-			}
-
-			.container {
-			    border-radius: 5px;
-			    background-color: #f2f2f2;
-			    padding: 20px;
-			}
-			
-		</style>
-
-	</head>
-	<body>
-
-            <ul class="breadcrumb">
-                <li><a href="#">Begin</a></li>
-                <li><a href="#">StepOne</a></li>
-                <li><a href="#">StepTwo</a></li>
-                <li>Finish</li>
-            </ul>
-            
-            <button id="btnT_Previous" onclick="previous()"> << Previous </button>
-            <button id="btnT_Next" onclick="next()"> Next >> </button>
-            <button id="btnT_Finish" onclick="finish()">Finish</button>
-            
-            <div id="Begin" class="a" >
-            
-            </div>
-
-            <div id="Finish" class="a" >
-                <label for="subject">Review</label>
-            </div>
-            
-            <div id="One" class="a" >
-
-                <label for="country">Country</label>
-                <select id="country" name="country">
-                </select>
+        <style>
                 
-            </div>
+            div.a {
+                height: auto;
+                border: .0px solid black;
+                padding: 30px;
+            }
 
-            <div id="Two" class="a" >
-                <label for="state">State</label>
-                <select id="state" name="state">
-                </select>
-                
-            </div>
-            
-            <button id="btnB_Previous" onclick="previous()"> << Previous </button>
-            <button id="btnB_Next" onclick="next()"> Next >> </button>
-            <button id="btnB_Finish" onclick="finish()">Finish</button>
-            
-            </br>
+            div.b {
+                height: 350px;
+                border: .5px solid black; 
+                padding-top: 60px;
 
-            <ul class="breadcrumb">
-                <li><a href="#">Begin</a></li>
-                <li><a href="#">StepOne</a></li>
-                <li><a href="#">StepTwo</a></li>
-                <li>Finish</li>
-            </ul>
-	</body>
+            }
+
+            ul.breadcrumb {
+                padding: 10px 16px;
+                list-style: none;
+                background-color: #eee;
+            }
+            
+            ul.breadcrumb li {
+                display: inline;
+                font-size: 18px;
+            }
+            
+            ul.breadcrumb li+li:before {
+                padding: 8px;
+                color: black;
+                content: "/\00a0";
+            }
+            
+            ul.breadcrumb li a {
+                color: #0275d8;
+                text-decoration: none;
+            }
+            
+            ul.breadcrumb li a:hover {
+                color: #01447e;
+                text-decoration: underline;
+            }
+
+            body {font-family: Arial, Helvetica, sans-serif;}
+            * {box-sizing: border-box;}
+
+            input[type=text], select, textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                resize: vertical;
+            }
+
+            input[type=submit] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+            .container {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+            
+        </style>
+
+    </head>
+	
+    <body>
+
+        <ul class="breadcrumb">
+            <li id="liT_Begin"><a href="#">Begin</a></li>
+            <li id="liT_One"><a href="#">One</a></li>
+            <li id="liT_Two"><a href="#">Two</a></li>
+            <li id="liT_Finish">Finish</li>
+        </ul>
+            
+        <button id="btnT_Previous" onclick="previous()"> << Previous </button>
+        <button id="btnT_Next" onclick="next()"> Next >> </button>
+        <button id="btnT_Finish" onclick="finish()">Finish</button>
+        
+        <div id="Begin" class="a"> </div>
+
+        <div id="Finish" class="a" >
+            <label for="subject">Review</label>
+        </div>
+        
+        <div id="One" class="a" >
+            <label for="country">Country</label>
+            <select id="country" name="country"> </select>
+        </div>
+
+        <div id="Two" class="a" >
+            <label for="state">State</label>
+            <select id="state" name="state"> </select>
+        </div>
+        
+        <button id="btnB_Previous" onclick="previous()"> << Previous </button>
+        <button id="btnB_Next" onclick="next()"> Next >> </button>
+        <button id="btnB_Finish" onclick="finish()">Finish</button>
+        
+        </br>
+
+        <ul class="breadcrumb">
+            <li id="liB_Begin"><a href="#">Begin</a></li>
+            <li id="liB_One"><a href="#">One</a></li>
+            <li id="liB_Two"><a href="#">Two</a></li>
+            <li id="liB_Finish">Finish</li>
+        </ul>
+        
+    </body>
+    
 </html>
