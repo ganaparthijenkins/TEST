@@ -28,7 +28,7 @@
                 $("#btnT_Finish").prop('disabled', true);
                 $("#btnB_Finish").prop('disabled', true);
                 
-                $.getJSON("https://raw.githubusercontent.com/ganaparthijenkins/TEST/master/UMM/UMMPageConfig.json", function(data) {
+                $.getJSON( "https://raw.githubusercontent.com/ganaparthijenkins/TEST/master/UMM/UMMPageConfig.json", function( data ) {
                   
 				  alert ( data );
 				  
@@ -45,8 +45,22 @@
                         $('#country').append('<option value="' + value.value + '">' + value.name + '</option>');
                         
                     });
-                    
-                });
+					
+					console.log( "success" );
+					
+                }).done(function() {
+					
+					console.log( "second success" );
+					
+				}).fail(function() {
+					
+					console.log( "error" );
+				
+				}).always(function() {
+					
+					console.log( "complete" );
+					
+				});
                     
                 $('#country').change(function () {
                     
