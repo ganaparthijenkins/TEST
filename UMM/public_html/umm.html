@@ -16,7 +16,7 @@
 
             $(document).ready(function(){
 				
-				alert ( ids[index] );
+                //alert ( ids[index] );
 
                 $("div").hide();
 
@@ -30,7 +30,7 @@
                 
                 $.getJSON( "https://raw.githubusercontent.com/ganaparthijenkins/TEST/master/UMM/UMMPageConfig.json", function( data ) {
                   
-				  alert ( data );
+                    //alert ( data );
 				  
                     $("#Begin").html( data.Pages.One )
                     
@@ -46,21 +46,21 @@
                         
                     });
 					
-					console.log( "success" );
+                    console.log( "success" );
 					
                 }).done(function() {
 					
-					console.log( "second success" );
-					
-				}).fail(function() {
-					
-					console.log( "error" );
-				
-				}).always(function() {
-					
-					console.log( "complete" );
-					
-				});
+                    console.log( "second success" );
+                        
+                }).fail(function() {
+                        
+                    console.log( "error" );
+                
+                }).always(function() {
+                        
+                    console.log( "complete" );
+                        
+                });
                     
                 $('#country').change(function () {
                     
