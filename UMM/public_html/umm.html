@@ -38,7 +38,7 @@
                     
                     states = data.States;
                     
-                    $('#country').append('<option value=\"---Select---\">---Select---</option>' );
+                    $('#country').append('<option value=\"---Select---\">---Select Country---</option>' );
                     
                     $.each(countries, function (index, value) {
                     
@@ -68,17 +68,25 @@
                     
                     $('#state').empty();
                     
+                    $('#state').append('<option value=\"---Select---\">---Select State---</option>' );
+                    
                     $.each(statesOfCountry, function (index, value) {
                     
                         $('#state').append('<option value="' + value.value + '">' + value.name + '</option>');
                         
                     });
                     
+                    $('#selectedRegion').html( "Selected Country : [<b>" + this.options[this.selectedIndex].text + "</b>]" );
+                    
                 });
                 
                 $('#state').change(function () {
                     
-                    $('#selectedCustomization').html('Country : ' + $('#country').options[$("#country").prop('selectedIndex')].text + ', State : ' + this.options[this.selectedIndex].text );
+                    var selectedCountry = $("#country option:selected").val();
+                    
+                    var selectedState = this.options[this.selectedIndex].text;
+                    
+                    $('#selectedRegion').html( "Selected Country : [<b>" + selectedCountry + "</b>], Selected State : [<b>" + selectedState + "</b>]" );
                     
                 });
                 
@@ -262,6 +270,8 @@
             <label for="state">State</label>
             <select id="state" name="state"> </select>
             
+            </br></br>
+            
             <label id="selectedRegion"></label>
             
         </div>
@@ -270,6 +280,9 @@
         
             <label for="customizations">Available Customizations</label>
             <select id="customizations" name="customizations"></select>
+            
+            </br></br>
+            
             <label id="selectedCustomization"></label>
             
         </div>
