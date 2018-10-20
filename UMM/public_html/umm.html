@@ -36,6 +36,8 @@
                     
                     var countries = data.Pages.Two;
                     
+                    var customizations = data.Pages.Three;
+                    
                     states = data.States;
                     
                     $('#country').append('<option value=\"---Select---\">---Select Country---</option>' );
@@ -46,6 +48,14 @@
                         
                     });
 					
+                    $('#customizations').append('<option value=\"---Select---\">---Select Customization---</option>' );
+                    
+                    $.each(customizations, function (index, value) {
+                    
+                        $('#customizations').append('<option value="' + value.value + '">' + value.name + '</option>');
+                        
+                    });
+                    
                     console.log( "success" );
 					
                 }).done(function() {
@@ -87,6 +97,14 @@
                     var selectedState = this.options[this.selectedIndex].text;
                     
                     $('#selectedRegion').html( "Selected Country : [<b>" + selectedCountry + "</b>], Selected State : [<b>" + selectedState + "</b>]" );
+                    
+                });
+                
+                $('#customizations').change(function () {
+                    
+                    var selectedCustomization = this.options[this.selectedIndex].text;
+                    
+                    $('#selectedCustomization').html( "Selected Customization : [<b>" + selectedCustomization + "</b>]" );
                     
                 });
                 
@@ -259,7 +277,7 @@
         <div id="Begin" class="a"> </div>
 
         <div id="Finish" class="a" >
-            <label for="subject">Review</label>
+            <label for="subject">Review Request</label>
         </div>
         
         <div id="One" class="a" >
