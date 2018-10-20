@@ -5,23 +5,23 @@
         [
             {
                 "name": "USA",
-                "value": "USA" 
+                "value": "usa" 
             },
             {
                 "name": "Canada",
-                "value": "Canada" 
+                "value": "canada" 
             },
             {
                 "name": "UK",
-                "value": "UK" 
+                "value": "uk" 
             },
             {
                 "name": "India",
-                "value": "India" 
+                "value": "india" 
             },
             {
                 "name": "Australia",
-                "value": "Australia" 
+                "value": "australia" 
             }
         ],
         "Three":
