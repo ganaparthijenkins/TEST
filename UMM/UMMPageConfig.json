@@ -27,49 +27,27 @@
         "Three":
         [
             {
-                "name": "USA",
-                "value": "USA" 
+                "name": "New Dimension Table",
+                "value": "New Dimension Table" 
                 },
             {
-                "name": "Canada",
-                "value": "Canada" 
+                "name": "Add a Fact Table",
+                "value": "Add a Fact Table" 
                 },
             {
-                "name": "UK",
-                "value": "uk" 
+                "name": "Completely New Form",
+                "value": "Completely New Form" 
                 },
             {
-                "name": "India",
-                "value": "India" 
+                "name": "Edit an Old Form",
+                "value": "Edit an Old Form" 
             },
             {
-                "name": "Australia",
-                "value": "Australia" 
-                }
+                "name": "Others",
+                "value": "Others" 
+            }
         ],
-        "Four":
-        [
-            {
-                "name": "USA",
-                "value": "USA" 
-                },
-            {
-                "name": "Canada",
-                "value": "Canada" 
-                },
-            {
-                "name": "UK",
-                "value": "uk" 
-                },
-            {
-                "name": "India",
-                "value": "India" 
-            },
-            {
-                "name": "Australia",
-                "value": "Australia" 
-                }
-        ]
+        "Four":[{}]
     },
     "States":{
         "USA":[
