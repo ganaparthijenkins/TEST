@@ -1,6 +1,6 @@
 {
     "Pages":{
-        "One" : "<span id=\\'sBegin\\'>\r\n <strong>\r\n  Welcome to Layered customization!<\/br>\r\n <\/strong>\r\n <\/br>\r\n This wizard helps you to extend the out of the box Oracle Analytical Apps functionality. Each step is highlighted in the header. \r\n <\/br>\r\n Step 1 is all documentation.\r\n  <\/br>\r\n  <\/span>",
+        "One" : "<span id=\\'sBegin\\'> <strong>  Welcome to Layered customization!<\/br> <\/strong> <\/br> This wizard helps you to extend the out of the box Oracle Analytical Apps functionality. Each step is highlighted in the header. <\/br> Step 1 is all documentation.  <\/br>  <\/span>",
         "Two":
         [
             {

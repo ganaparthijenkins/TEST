@@ -15,6 +15,8 @@
             var states;
 
             $(document).ready(function(){
+				
+				alert ( ids[index] );
 
                 $("div").hide();
 
@@ -28,6 +30,8 @@
                 
                 $.getJSON("https://raw.githubusercontent.com/ganaparthijenkins/TEST/master/UMM/UMMPageConfig.json", function(data) {
                   
+				  alert ( data );
+				  
                     $("#Begin").html( data.Pages.One )
                     
                     var countries = data.Pages.Two;
@@ -56,6 +60,10 @@
                         
                     });
                     
+                });
+                
+                $('a').click(function(){
+                  alert('Sign new href executed.'); 
                 });
 
             });
