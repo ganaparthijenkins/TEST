@@ -76,8 +76,16 @@
                     
                 });
                 
+                $('#state').change(function () {
+                    
+                    $('#selectedCustomization').html('Country : ' + $('#country').options[$("#country").prop('selectedIndex')].text + ', State : ' + this.options[this.selectedIndex].text );
+                    
+                });
+                
                 $('a').click(function(){
+                
                   alert('Sign new href executed.'); 
+                
                 });
 
             });
