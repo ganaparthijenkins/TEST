@@ -73,6 +73,8 @@
          <string v="-Xlint:-serial"/>
          <string v="-Xlint:-unchecked"/>
       </list>
+      <value n="source" v="Default"/>
+      <value n="target" v="Default"/>
       <value n="webIANAEncoding" v="UTF-8"/>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -89,6 +91,13 @@
       <list n="runConfigurationList">
          <string v="Default"/>
       </list>
+   </hash>
+   <hash n="oracle.jdevimpl.config.JProjectLibraries">
+      <hash n="jdkReference">
+         <url n="id" path="../../../MyWork/HPSM/Libraries/1.8.0_131.jdk"/>
+         <value n="isJDK" v="true"/>
+         <value n="jdkVersion" v="1.8.0_131"/>
+      </hash>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
